@@ -1,0 +1,29 @@
+{
+    "id": "07d9947c-22ac-412f-b216-b461a92c5405",
+    "object": "chat.completion",
+    "created": 1740671311,
+    "model": "grok-2-1212",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "Hi\nHello world",
+                "refusal": null
+            },
+            "finish_reason": "stop"
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 28,
+        "completion_tokens": 5,
+        "total_tokens": 33,
+        "prompt_tokens_details": {
+            "text_tokens": 28,
+            "audio_tokens": 0,
+            "image_tokens": 0,
+            "cached_tokens": 0
+        }
+    },
+    "system_fingerprint": "fp_c612364da3"
+}

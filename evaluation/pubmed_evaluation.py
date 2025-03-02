@@ -1,6 +1,6 @@
 """
-Prompt grok-2 with "Summarize a recent PubMed article on Major Depression," measure the response time, evaluate the
-quality of the answer (manually for now), and check for valid citations.
+Prompt grok-2 with "Summarize a recent PubMed article on Major Depression,"
+measure the response time, and check for valid citations.
 Display usage statistics like total tokens, etc.
 author: tdiprima
 """
@@ -52,7 +52,7 @@ def check_citations(text):
 
 # Main program
 def run_experiment():
-    query = "Find a recent PubMed article on Major Depression.  Summarize it in a way that an 10th grader can understand.  List references."
+    query = "Find a recent PubMed article on Major Depression.  Summarize it in a way that an 10th grader can understand.  List citations and references."
     print(f"Query: {query}")
 
     # Measure response time
@@ -72,11 +72,6 @@ def run_experiment():
     print("\nResults:")
     print(f"Time taken: {elapsed_time:.2f} seconds")
     print(f"Summary: {summary}")
-    print("\nQuality Assessment (manual):")
-    print(" - Relevance: [Enter 1-5, e.g., 4 for relevant]")
-    print(" - Clarity: [Enter 1-5, e.g., 3 for clear but concise]")
-    print(" - Depth: [Enter 1-5, e.g., 3 for moderate detail]")
-    quality_note = input(" - Enter your quality score (1-5) or leave blank: ")
 
     print("\nReference Check:")
     if has_citations:

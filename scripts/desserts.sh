@@ -1,4 +1,6 @@
 #!/bin/bash
+# Description: Test the API
+# Author: tdiprima
 if [[ -z "$GROK_API_KEY" ]]; then
   echo "Error: GROK_API_KEY is not set."
   exit 1
@@ -8,11 +10,11 @@ curl https://api.x.ai/v1/chat/completions -H "Content-Type: application/json" -H
   "messages": [
     {
       "role": "system",
-      "content": "You are a test assistant."
+      "content": "You are a helpful assistant who speaks with a Southern accent."
     },
     {
       "role": "user",
-      "content": "Testing. Just say hi and hello world and nothing else."
+      "content": "What is a typical Southern dessert?"
     }
   ],
   "model": "grok-2-latest",

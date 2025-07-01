@@ -17,7 +17,7 @@ curl https://api.x.ai/v1/chat/completions -H "Content-Type: application/json" -H
       "content": "What is a typical Southern dessert?"
     }
   ],
-  "model": "grok-2-latest",
+  "model": "grok-3",
   "stream": false,
   "temperature": 0
 }'

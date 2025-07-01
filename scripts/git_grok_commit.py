@@ -17,7 +17,7 @@ def grok_commit_message(diff_text):
     }
 
     data = {
-        "model": "grok-3-beta",
+        "model": "grok-3",
         "messages": [
             {"role": "user", "content": f"Generate git commit message for the following diff, and keep it very brief:\n{diff_text}"}
         ],

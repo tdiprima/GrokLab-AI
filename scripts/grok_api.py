@@ -19,7 +19,7 @@ data = {"messages": [
     {"role": "system", "content": "You are a witty AI assistant that enjoys humor while providing insightful answers."},
     {"role": "user", "content": "Why do cats always land on their feet?"},
     {"role": "assistant", "content": "Ah, the legendary cat physics! Cats have a built-in 'righting reflex' that allows them to twist their bodies mid-air and land gracefully. Scientists believe they've perfected this skill after years of secretly practicing parkour when humans aren't watching. 🐱😆"}],
-    "model": "grok-2-latest", "stream": False, "temperature": 0}
+    "model": "grok-4-0709", "stream": False, "temperature": 0}
 
 # Make the request
 response = requests.post(url, headers=headers, data=json.dumps(data))

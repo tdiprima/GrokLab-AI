@@ -1,5 +1,5 @@
 """
-Prompt grok-2 with "Summarize a recent PubMed article on Major Depression,"
+Prompt grok with "Summarize a recent PubMed article on Major Depression,"
 measure the response time, and check for valid citations.
 Display usage statistics like total tokens, etc.
 author: tdiprima
@@ -11,7 +11,7 @@ import os
 
 
 # Grok API response
-def call_grok3_api(query):
+def call_grok_api(query):
     api_key = os.getenv("GROK_API_KEY")  # Get from console.x.ai
     if not api_key:
         raise ValueError("GROK_API_KEY environment variable is not set")
@@ -20,7 +20,7 @@ def call_grok3_api(query):
     headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
     payload = {
         "messages": [{"role": "user", "content": query}],
-        "model": "grok-2-latest"
+        "model": "grok-4-0709"
     }
     
     try:
@@ -57,7 +57,7 @@ def run_experiment():
 
     # Measure response time
     start_time = time.time()
-    response = call_grok3_api(query)
+    response = call_grok_api(query)
     end_time = time.time()
     elapsed_time = end_time - start_time
 

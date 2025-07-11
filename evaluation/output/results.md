@@ -1,3 +1,5 @@
+March 10, 2025 at 10:51:26 AM
+
 ## Grok 2
 I tested the **Grok API** (grok-2; no grok-3 thru the API yet) with the prompt: "Find a recent PubMed article on Major Depression. Summarize it in a way a 10th grader can understand. List references." Here's what I found:  
 
@@ -15,12 +17,16 @@ Any time I tried this, it gets actual articles 100% of the time.
 ## Claude
 **Claude (3.7 Sonnet) cannot access, search for, or retrieve specific articles.**  So&mdash;it can tell us *about* certain things, but it can't give us the article it came from.
 
+---
+
+## Azure:
+
 ## gpt-35-turbo
-"Do you have the ability to query the internet?"
-(Azure) I don't have the ability to browse the internet or access real-time information. However, I can provide you with general information and answer questions based on the knowledge and data programmed into me.
+"Do you have the ability to query the internet?"  
+I don't have the ability to browse the internet or access real-time information. However, I can provide you with general information and answer questions based on the knowledge and data programmed into me.
 
 ## DeepSeek-R1
-"Do you have the ability to query the internet?"
+"Do you have the ability to query the internet?"  
 I'm sorry, but currently I don't have access to the internet. Perhaps in the near future I'll have internet access to better serve you~
 
 <br>

@@ -6,5 +6,5 @@ client = OpenAI(
     api_key=os.getenv("GROK_API_KEY")
 ) 
 
-response = client.chat.completions.create(model="grok-2-latest", messages=[{"role": "user", "content": "Hello, Grok!"}])
+response = client.chat.completions.create(model="grok-4-0709", messages=[{"role": "user", "content": "Hello, Grok!"}])
 print(response.choices[0].message.content)

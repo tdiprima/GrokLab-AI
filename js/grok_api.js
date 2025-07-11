@@ -15,7 +15,7 @@ async function fetchGrokResponse() {
         'Authorization': `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        model: 'grok-2-latest',
+        model: 'grok-4-0709',
         messages: [{ role: 'user', content: 'Hello, Grok!' }]
       })
     });

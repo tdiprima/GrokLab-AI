@@ -21,12 +21,6 @@ if response.status_code == 200:
     models = response.json()
     for model in models['data']:
         timestamp = model['created']
-        # Convert to human-readable format
-        # readable_date = datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S UTC')
-
-        # Local time instead of UTC
-        # readable_date_local = datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
-
         # Convert UTC timestamp to local California time
         readable_date_local = datetime.fromtimestamp(timestamp, california_tz).strftime('%Y-%m-%d %H:%M:%S %Z')
         print(f"Model ID: {model['id']}, Created At: {readable_date_local}")

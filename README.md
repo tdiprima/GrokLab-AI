@@ -1,7 +1,7 @@
 # GrokLab-AI
 
 ## Overview
-This repository contains scripts for interacting with OpenAI and Grok AI APIs, performing evaluations, and testing compatibility. It includes implementations in Python, JavaScript, and Bash.
+There's all kinds of ways of doing this. *All kinndddzzz...*
 
 ## Setup Instructions
 
@@ -16,7 +16,7 @@ cd GrokLab-AI
 
 ```sh
 export GROK_API_KEY=your_api_key_here
-export OPENAI_API_KEY=your_openai_key_here
+export XAI_API_KEY=your_openai_key_here
 ```
 
 ### 3. Install Dependency

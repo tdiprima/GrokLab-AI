@@ -1,3 +1,20 @@
+"""
+Generic Grok API Script
+======================
+
+This script reads content from an input file, sends it to the Grok API for processing,
+and saves the response to an output file.
+
+Usage:
+1. Set up your env with XAI_API_KEY
+2. Update INPUT_FILE and OUTPUT_FILE variables
+3. Modify the prompt section to match your requirements
+4. Run the script: python generic_grok_script.py
+
+Author: Tammy DiPrima
+Date: July 15, 2025
+Version: 1.0
+"""
 import os
 from dotenv import load_dotenv
 from openai import OpenAI

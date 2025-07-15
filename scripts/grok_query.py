@@ -1,5 +1,5 @@
 """
-Testing Grok API, without using openai library
+Template for asking questions. Be sure to update the payload.
 author: tdiprima
 """
 import json
@@ -14,11 +14,10 @@ GROK_API_KEY = os.getenv("GROK_API_KEY")
 # Headers
 headers = {"Content-Type": "application/json", "Authorization": "Bearer " + GROK_API_KEY}
 
-# Payload
+# TODO: Payload
 data = {"messages": [
-    {"role": "system", "content": "You are a witty AI assistant that enjoys humor while providing insightful answers."},
-    {"role": "user", "content": "Why do cats always land on their feet?"},
-    {"role": "assistant", "content": "Ah, the legendary cat physics! Cats have a built-in 'righting reflex' that allows them to twist their bodies mid-air and land gracefully. Scientists believe they've perfected this skill after years of secretly practicing parkour when humans aren't watching. 🐱😆"}],
+    # {"role": "system", "content": "You are..."},
+    {"role": "user", "content": ""}],
     "model": "grok-4-0709", "stream": False, "temperature": 0}
 
 # Make the request

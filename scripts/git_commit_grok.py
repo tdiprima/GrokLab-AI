@@ -2,9 +2,11 @@ import subprocess
 import requests
 import os
 
+
 def get_git_diff():
     result = subprocess.run(['git', 'diff', '--cached'], stdout=subprocess.PIPE)
     return result.stdout.decode('utf-8')
+
 
 def grok_commit_message(diff_text):
     api_key = os.getenv("GROK_API_KEY")
@@ -34,6 +36,7 @@ def grok_commit_message(diff_text):
 
     return response.json()["choices"][0]["message"]["content"].strip()
 
+
 def main():
     diff = get_git_diff()
     if not diff:
@@ -54,6 +57,7 @@ def main():
         subprocess.run(["git", "commit", "-m", commit_message])
     else:
         print("Commit aborted.")
+
 
 if __name__ == "__main__":
     main()

@@ -30,7 +30,7 @@ pip install openai
 #### Python
 
 ```sh
-python scripts/grok_api.py
+python scripts/grok_query.py
 ```
 
 #### JavaScript

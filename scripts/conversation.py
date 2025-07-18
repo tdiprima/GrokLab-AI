@@ -30,7 +30,7 @@ def main():
                 messages=[
                     {"role": "user", "content": user_input}
                 ],
-                temperature=0
+                temperature=0.7
             )
             
             print(f"Grok4\n: {response.choices[0].message.content}\n")

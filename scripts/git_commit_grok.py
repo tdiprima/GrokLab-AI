@@ -21,7 +21,7 @@ def grok_commit_message(diff_text):
     data = {
         "model": "grok-4-0709",
         "messages": [
-            {"role": "user", "content": f"Generate git commit message for the following diff, and keep it very brief:\n{diff_text}"}
+            {"role": "user", "content": f"Generate git commit message for the following diff, and keep it to <= 50 characters:\n{diff_text}"}
         ],
         "temperature": 0.5
     }

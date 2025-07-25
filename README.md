@@ -1,7 +1,6 @@
 # GrokLab-AI
 
-## Overview
-There's all kinds of ways of doing this. *All kinndddzzz...*
+There's all kinds of ways of doing this.
 
 ## Setup Instructions
 
@@ -30,19 +29,19 @@ pip install openai
 #### Python
 
 ```sh
-python scripts/grok_query.py
+python python/query_template.py
 ```
 
 #### JavaScript
 
 ```sh
-node js/grok_query.js
+node javascript/grok_api.js
 ```
 
 #### Bash
 
 ```sh
-bash scripts/grok_curl.sh
+bash bash/get_api_models.sh
 ```
 
 ## Features

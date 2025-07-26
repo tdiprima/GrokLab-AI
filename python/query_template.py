@@ -1,11 +1,15 @@
 """
-Template for asking questions. Be sure to update the payload.
+Template for asking questions. Be sure to update the prompt and payload.
 author: tdiprima
 """
 import json
 import os
 
 import requests
+
+# TODO: Update prompt
+PROMPT = """
+"""
 
 # API endpoint
 url = "https://api.x.ai/v1/chat/completions"
@@ -14,10 +18,10 @@ GROK_API_KEY = os.getenv("GROK_API_KEY")
 # Headers
 headers = {"Content-Type": "application/json", "Authorization": "Bearer " + GROK_API_KEY}
 
-# TODO: Payload
+# TODO: Update payload
 data = {"messages": [
     # {"role": "system", "content": "You are..."},
-    {"role": "user", "content": ""}],
+    {"role": "user", "content": PROMPT}],
     "model": "grok-4-0709", "stream": False, "temperature": 0}
 
 # Make the request

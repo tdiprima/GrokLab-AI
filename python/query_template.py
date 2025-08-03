@@ -1,38 +1,27 @@
 """
-Template for asking questions. Be sure to update the prompt and payload.
-author: tdiprima
+Adapted from: https://docs.x.ai/docs/tutorial
+Requires-Python >=3.10:
+$ pip install xai-sdk
 """
-import json
 import os
 
-import requests
+from xai_sdk import Client
+from xai_sdk.chat import user, system
 
-# TODO: Update prompt
-PROMPT = """
-"""
+client = Client(
+    api_key=os.getenv("XAI_API_KEY"),
+    timeout=3600,  # Override default timeout with longer timeout for reasoning models
+)
 
-# API endpoint
-url = "https://api.x.ai/v1/chat/completions"
-GROK_API_KEY = os.getenv("GROK_API_KEY")
+chat = client.chat.create(model="grok-4")
+chat.append(system("You are Grok, a highly intelligent, helpful AI assistant."))
+chat.append(user("What is the meaning of life, the universe, and everything?"))
 
-# Headers
-headers = {"Content-Type": "application/json", "Authorization": "Bearer " + GROK_API_KEY}
+response = chat.sample()
+# print(response.content)
 
-# TODO: Update payload
-data = {"messages": [
-    # {"role": "system", "content": "You are..."},
-    {"role": "user", "content": PROMPT}],
-    "model": "grok-4-0709", "stream": False, "temperature": 0}
+# Save the response to a file
+with open("response.md", "w") as f:
+    f.write(response.content)
 
-# Make the request
-response = requests.post(url, headers=headers, data=json.dumps(data))
-
-# Parse response JSON
-if response.status_code == 200:
-    response_json = response.json()
-
-    # Extract and print the content
-    content = response_json.get("choices", [{}])[0].get("message", {}).get("content", "")
-    print(content)
-else:
-    print(f"Error: {response.status_code}, {response.text}")
+print("Response saved to response.md")

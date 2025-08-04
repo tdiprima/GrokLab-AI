@@ -1,27 +1,10 @@
-"""
-Generic Grok API Script
-======================
-
-This script reads content from an input file, sends it to the Grok API for processing,
-and saves the response to an output file.
-
-Usage:
-1. Set up your env with XAI_API_KEY
-2. Update INPUT_FILE and OUTPUT_FILE variables
-3. Modify the prompt section to match your requirements
-4. Run the script: python generic_grok_script.py
-
-Author: Tammy DiPrima
-Date: July 15, 2025
-Version: 1.0
-"""
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
 
 # Configuration - modify these values as needed
 INPUT_FILE = 'input.txt'  # Change this to your input file name
-OUTPUT_FILE = 'output.py'  # Change this to your desired output file name
+OUTPUT_FILE = 'output.md'  # Change this to your desired output file name
 
 # Load environment variables
 load_dotenv()
@@ -59,12 +42,12 @@ Instructions:
 Please provide your response below:"""
 
 completion = client.chat.completions.create(
-  model="grok-4-0709",
+  model="grok-4",
   messages=[
     {"role": "user", "content": prompt}
   ],
-  max_tokens=4000,  # Adjust based on expected response length
-  temperature=0.1   # Adjust for creativity vs. focus (0.0-1.0)
+  max_tokens=4096,  # Adjust based on expected response length
+  temperature=0.2   # Adjust for creativity vs. focus (0.0-1.0)
 )
 
 print("Response:", completion.choices[0].message.content)

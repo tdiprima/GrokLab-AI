@@ -13,7 +13,7 @@ import json
 
 # Grok API endpoint and model
 GROK_API_URL = "https://api.x.ai/v1/chat/completions"
-GROK_MODEL = "grok-4-0709"
+GROK_MODEL = "grok-4"
 
 # Configurable token threshold (to avoid hitting context limits; Grok supports ~128k)
 MAX_TOKENS = 100000

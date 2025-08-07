@@ -45,7 +45,7 @@ Here's the content:
 """
 
 completion = client.chat.completions.create(
-  model="grok-4-0709",
+  model="grok-4",
   messages=[
     {"role": "user", "content": prompt}
   ],

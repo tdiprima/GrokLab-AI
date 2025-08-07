@@ -7,7 +7,7 @@ client = OpenAI(
 ) 
 
 response = client.chat.completions.create(
-    model="grok-4-0709",
+    model="grok-4",
     messages=[{"role": "user", "content": "Hello, Grok!"}]
 )
 print(response.choices[0].message.content)

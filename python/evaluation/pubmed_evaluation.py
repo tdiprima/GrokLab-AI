@@ -20,7 +20,7 @@ def call_grok_api(query):
     headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
     payload = {
         "messages": [{"role": "user", "content": query}],
-        "model": "grok-4-0709"
+        "model": "grok-4"
     }
     
     try:

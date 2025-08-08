@@ -50,7 +50,7 @@ completion = client.chat.completions.create(
   temperature=0.2   # Adjust for creativity vs. focus (0.0-1.0)
 )
 
-print("Response:", completion.choices[0].message.content)
+# print("Response:", completion.choices[0].message.content)
 
 # Save the response to output file
 with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:

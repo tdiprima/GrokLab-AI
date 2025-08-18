@@ -1,11 +1,12 @@
-import subprocess
-import requests
 import os
+import subprocess
+
+import requests
 
 
 def get_git_diff():
-    result = subprocess.run(['git', 'diff', '--cached'], stdout=subprocess.PIPE)
-    return result.stdout.decode('utf-8')
+    result = subprocess.run(["git", "diff", "--cached"], stdout=subprocess.PIPE)
+    return result.stdout.decode("utf-8")
 
 
 def grok_commit_message(diff_text):
@@ -13,17 +14,17 @@ def grok_commit_message(diff_text):
     if not api_key:
         raise ValueError("GROK_API_KEY not set in environment variables.")
 
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json"
-    }
+    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
 
     data = {
         "model": "grok-4",
         "messages": [
-            {"role": "user", "content": f"Generate git commit message for the following diff, and keep it to <= 50 characters:\n{diff_text}"}
+            {
+                "role": "user",
+                "content": f"Generate git commit message for the following diff, and keep it to <= 50 characters:\n{diff_text}",
+            }
         ],
-        "temperature": 0.5
+        "temperature": 0.5,
     }
 
     url = "https://api.x.ai/v1/chat/completions"  # Replace if different

@@ -4,10 +4,12 @@ measure the response time, and check for valid citations.
 Display usage statistics like total tokens, etc.
 author: tdiprima
 """
-import time
-import re
-import requests
+
 import os
+import re
+import time
+
+import requests
 
 
 # Grok API response
@@ -15,22 +17,19 @@ def call_grok_api(query):
     api_key = os.getenv("GROK_API_KEY")  # Get from console.x.ai
     if not api_key:
         raise ValueError("GROK_API_KEY environment variable is not set")
-    
+
     url = "https://api.x.ai/v1/chat/completions"
     headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
-    payload = {
-        "messages": [{"role": "user", "content": query}],
-        "model": "grok-4"
-    }
-    
+    payload = {"messages": [{"role": "user", "content": query}], "model": "grok-4"}
+
     try:
         response = requests.post(url, json=payload, headers=headers)
         response.raise_for_status()  # Raise an exception for HTTP errors
-        
+
         data = response.json()
         return {
             "summary": data["choices"][0]["message"]["content"],
-            "usage_stats": data.get("usage", {})
+            "usage_stats": data.get("usage", {}),
         }
     except requests.exceptions.RequestException as e:
         print(f"API request error: {e}")

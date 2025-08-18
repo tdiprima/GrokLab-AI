@@ -1,9 +1,9 @@
 # Adapted from: https://docs.x.ai/docs/tutorial
-import os
 import base64
+import os
 
 from xai_sdk import Client
-from xai_sdk.chat import user, image
+from xai_sdk.chat import image, user
 
 INPUT_FILE = "input.png"
 OUTPUT_FILE = "output.md"
@@ -21,16 +21,11 @@ client = Client(
 
 # Read and encode the image as base64
 with open(INPUT_FILE, "rb") as img_file:
-    img_data = base64.b64encode(img_file.read()).decode('utf-8')
+    img_data = base64.b64encode(img_file.read()).decode("utf-8")
     img_url = f"data:image/png;base64,{img_data}"
 
 chat = client.chat.create(model="grok-4")
-chat.append(
-    user(
-        PROMPT,
-        image(img_url)
-    )
-)
+chat.append(user(PROMPT, image(img_url)))
 
 response = chat.sample()
 # print(response.content)

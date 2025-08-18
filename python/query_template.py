@@ -3,10 +3,11 @@ Adapted from: https://docs.x.ai/docs/tutorial
 Requires-Python >=3.10:
 $ pip install xai-sdk
 """
+
 import os
 
 from xai_sdk import Client
-from xai_sdk.chat import user, system
+from xai_sdk.chat import system, user
 
 client = Client(
     api_key=os.getenv("XAI_API_KEY"),

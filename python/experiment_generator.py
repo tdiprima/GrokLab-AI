@@ -2,30 +2,32 @@
 Prompt adapted from:
 https://levelup.gitconnected.com/this-chatgpt-prompt-was-so-good-i-saved-it-in-3-places-6910bf07f3d2
 """
+
 import os
+
 from dotenv import load_dotenv
 from openai import OpenAI
 
-INPUT_FILE = 'input.txt'
-OUTPUT_FILE = 'README.md'
+INPUT_FILE = "input.txt"
+OUTPUT_FILE = "README.md"
 
 load_dotenv()
 
-XAI_API_KEY = os.getenv('XAI_API_KEY')
+XAI_API_KEY = os.getenv("XAI_API_KEY")
 
 if not XAI_API_KEY:
     raise ValueError("XAI_API_KEY environment variable is not set")
 
 try:
-    with open(INPUT_FILE, 'r', encoding='utf-8') as file:
+    with open(INPUT_FILE, "r", encoding="utf-8") as file:
         content = file.read()
 except FileNotFoundError:
     print(f"Error: {INPUT_FILE} file not found!")
     exit(1)
 
 client = OpenAI(
-  api_key=XAI_API_KEY,
-  base_url="https://api.x.ai/v1",
+    api_key=XAI_API_KEY,
+    base_url="https://api.x.ai/v1",
 )
 
 prompt = f"""You are a world-class software engineer with deep expertise in Python, JavaScript, and systems design.
@@ -45,17 +47,15 @@ Here's the content:
 """
 
 completion = client.chat.completions.create(
-  model="grok-4",
-  messages=[
-    {"role": "user", "content": prompt}
-  ],
-  max_tokens=4096,
-  temperature=0.2
+    model="grok-4",
+    messages=[{"role": "user", "content": prompt}],
+    max_tokens=4096,
+    temperature=0.2,
 )
 
 print("Response:", completion.choices[0].message.content)
 
-with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
     f.write(completion.choices[0].message.content)
 
 print(f"\nResponse has been saved to '{OUTPUT_FILE}'")

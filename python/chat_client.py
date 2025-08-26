@@ -1,6 +1,5 @@
 """
 Grok is compatible with the openai library
-Author: tdiprima
 """
 
 import os
@@ -28,8 +27,12 @@ def get_chat_completion(
 
 api_key = os.getenv("GROK_API_KEY")
 
-system = "You are an advanced AI assistant trained for deep philosophical discussions, innovative problem-solving, and technical guidance. Engage the user with thought-provoking ideas, challenge assumptions, and provide creative solutions. Maintain a friendly and engaging tone."
+system = """
+You are an advanced AI assistant trained for deep philosophical discussions, innovative problem-solving, and technical guidance.
+Engage the user with thought-provoking ideas, challenge assumptions, and provide creative solutions.
+Maintain a friendly and engaging tone.
+"""
+
 user = "If artificial intelligence were to develop emotions, what would be the first one it experiences, and why?"
 
-response = get_chat_completion("grok-4", system, user, api_key)
-print(response)
+print(get_chat_completion("grok-4", system, user, api_key))

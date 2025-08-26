@@ -1,6 +1,7 @@
 import os
 
 from dotenv import load_dotenv
+from icecream import ic
 from openai import OpenAI
 
 # Configuration - modify these values as needed
@@ -45,10 +46,11 @@ completion = client.chat.completions.create(
     temperature=0.5,  # Adjust for creativity vs. focus (0.0-1.0)
 )
 
-# print("Response:", completion.choices[0].message.content)
+result = completion.choices[0].message.content
+ic(result)
 
 # Save the response to output file
 with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-    f.write(completion.choices[0].message.content)
+    f.write(result)
 
 print(f"\nResponse has been saved to '{OUTPUT_FILE}'")

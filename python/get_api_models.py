@@ -1,7 +1,6 @@
 """
 Retrieve a list of available models from the xAI API
 https://docs.x.ai/docs/api-reference?api-key=c6fbf1f6-0480-4866-abe9-e07a090bc433&cluster=us-east-1#list-models
-Author: tdiprima
 """
 
 import os

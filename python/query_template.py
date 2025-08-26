@@ -14,9 +14,13 @@ client = Client(
     timeout=3600,  # Override default timeout with longer timeout for reasoning models
 )
 
+PROMPT = """
+What is the meaning of life, the universe, and everything?
+"""
+
 chat = client.chat.create(model="grok-4")
 chat.append(system("You are Grok, a highly intelligent, helpful AI assistant."))
-chat.append(user("What is the meaning of life, the universe, and everything?"))
+chat.append(user(PROMPT))
 
 response = chat.sample()
 # print(response.content)

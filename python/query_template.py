@@ -25,8 +25,10 @@ chat.append(user(PROMPT))
 response = chat.sample()
 # print(response.content)
 
+filename = "response.md"
+
 # Save the response to a file
-with open("response.md", "w") as f:
+with open(filename, "w") as f:
     f.write(response.content)
 
-print("Response saved to response.md")
+print(f"Response saved to {filename}")

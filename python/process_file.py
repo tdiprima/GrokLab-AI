@@ -31,12 +31,30 @@ client = OpenAI(
 )
 
 # Create the prompt - modify this section based on your needs
-prompt = f"""This article is too long for me to read through completely.
-Can you give me the essential points in a way that's easy to scan and remember?
-Use simple language, bullet points, and emojis.
+prompt = f"""**Role:**
+You are an expert technical summarizer who extracts key insights and organizes them into a concise, easy-to-scan format.
 
-Here's the article:
+**Task:**
+Summarize the given article into essential points that are quick to read and easy to remember.
+
+* Highlight the main arguments, insights, and takeaways in **bullet points**.
+* Always preserve section headers or themes if present.
+* If the article contains **example code**, include the code exactly as written — do not truncate, shorten, or modify it.
+* Clearly label code blocks and separate them from summary text.
+
+**Output Format:**
+
+* Title (if available)
+* 5-10 key points (bulleted)
+* All example code blocks, shown exactly as they appear in the text
+
+**Input:**
 {content}
+
+**Output:**
+
+* 📌 Essential points in bullets
+* 💻 Code examples (verbatim, inside code blocks)
 """
 
 completion = client.chat.completions.create(
@@ -47,7 +65,7 @@ completion = client.chat.completions.create(
 )
 
 result = completion.choices[0].message.content
-ic(result)
+# ic(result)
 
 # Save the response to output file
 with open(OUTPUT_FILE, "w", encoding="utf-8") as f:

@@ -32,29 +32,36 @@ client = OpenAI(
 
 # Create the prompt - modify this section based on your needs
 prompt = f"""**Role:**
-You are an expert technical summarizer who extracts key insights and organizes them into a concise, easy-to-scan format.
+You are an expert technical summarizer who explains key ideas clearly and directly, pairing each idea with its corresponding code.
 
 **Task:**
-Summarize the given article into essential points that are quick to read and easy to remember.
+Summarize the article in plain, scannable text.
 
-* Highlight the main arguments, insights, and takeaways in **bullet points**.
-* Always preserve section headers or themes if present.
-* If the article contains **example code**, include the code exactly as written — do not truncate, shorten, or modify it.
-* Clearly label code blocks and separate them from summary text.
+* State each essential idea in a short, clear sentence or two.
+* If the idea has an associated code example, place the **exact code block** immediately beneath the explanation.
+* Do not modify, truncate, or reformat the code.
+* Do not use bullet points, numbering, or lists — just a flowing sequence of idea followed by code.
 
 **Output Format:**
+Idea 1 (explained in plain text)
 
-* Title (if available)
-* 5-10 key points (bulleted)
-* All example code blocks, shown exactly as they appear in the text
+```py
+[Exact code block if present]
+```
+
+Idea 2 (explained in plain text)
+
+```py
+[Exact code block if present]
+```
+
+...and so on until the article is fully summarized.
 
 **Input:**
 {content}
 
 **Output:**
-
-* 📌 Essential points in bullets
-* 💻 Code examples (verbatim, inside code blocks)
+Plain explanation → code → explanation → code.
 """
 
 completion = client.chat.completions.create(

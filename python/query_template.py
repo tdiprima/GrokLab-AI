@@ -6,6 +6,7 @@ $ pip install xai-sdk
 
 import os
 
+from halo import Halo
 from xai_sdk import Client
 from xai_sdk.chat import system, user
 
@@ -22,7 +23,15 @@ chat = client.chat.create(model="grok-4")
 chat.append(system("You are Grok, a highly intelligent, helpful AI assistant."))
 chat.append(user(PROMPT))
 
-response = chat.sample()
+spinner = Halo(text="Generating response...", spinner="dots")
+spinner.start()
+
+try:
+    response = chat.sample()
+    spinner.succeed("Response generated successfully!")
+except Exception as e:
+    spinner.fail(f"Failed to generate response: {str(e)}")
+    raise
 # print(response.content)
 
 filename = "response.md"

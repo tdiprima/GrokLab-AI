@@ -1,6 +1,7 @@
 import os
 
 from dotenv import load_dotenv
+from halo import Halo
 from icecream import ic
 from openai import OpenAI
 
@@ -64,15 +65,23 @@ Idea 2 (explained in plain text)
 Plain explanation → code → explanation → code.
 """
 
-completion = client.chat.completions.create(
-    model="grok-4",
-    messages=[{"role": "user", "content": prompt}],
-    max_tokens=4096,  # Adjust based on expected response length
-    temperature=0.5,  # Adjust for creativity vs. focus (0.0-1.0)
-)
+spinner = Halo(text="Generating response...", spinner="dots")
+spinner.start()
 
-result = completion.choices[0].message.content
-# ic(result)
+try:
+    completion = client.chat.completions.create(
+        model="grok-4",
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=4096,  # Adjust based on expected response length
+        temperature=0.5,  # Adjust for creativity vs. focus (0.0-1.0)
+    )
+
+    result = completion.choices[0].message.content
+    spinner.succeed("Response generated successfully!")
+    # ic(result)
+except Exception as e:
+    spinner.fail(f"Failed to generate response: {str(e)}")
+    raise
 
 # Save the response to output file
 with open(OUTPUT_FILE, "w", encoding="utf-8") as f:

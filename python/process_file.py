@@ -58,6 +58,9 @@ Idea 2 (explained in plain text)
 
 ...and so on until the article is fully summarized.
 
+Do NOT number them. For example: Idea 1, Idea 2, etc.
+Do not say 'The first library...' or 'The second library...'.
+
 **Input:**
 {content}
 

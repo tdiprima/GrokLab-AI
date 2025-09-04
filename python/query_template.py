@@ -23,7 +23,7 @@ chat = client.chat.create(model="grok-4")
 chat.append(system("You are Grok, a highly intelligent, helpful AI assistant."))
 chat.append(user(PROMPT))
 
-spinner = Halo(text="Generating response...", spinner="dots")
+spinner = Halo(text="Generating response...", spinner="dots", color="magenta")
 spinner.start()
 
 try:

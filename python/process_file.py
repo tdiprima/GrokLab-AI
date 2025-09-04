@@ -65,7 +65,7 @@ Idea 2 (explained in plain text)
 Plain explanation → code → explanation → code.
 """
 
-spinner = Halo(text="Generating response...", spinner="dots")
+spinner = Halo(text="Generating response...", spinner="dots", color="magenta")
 spinner.start()
 
 try:

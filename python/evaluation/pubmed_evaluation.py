@@ -33,10 +33,10 @@ def call_grok_api(query):
         }
     except requests.exceptions.RequestException as e:
         print(f"API request error: {e}")
-        return {"summary": f"Error: {str(e)}", "usage_stats": {}}
+        return {"summary": f"Error: {e}", "usage_stats": {}}
     except (KeyError, IndexError, ValueError) as e:
         print(f"Error parsing API response: {e}")
-        return {"summary": f"Error parsing response: {str(e)}", "usage_stats": {}}
+        return {"summary": f"Error parsing response: {e}", "usage_stats": {}}
 
 
 # Function to check for valid citations in the response

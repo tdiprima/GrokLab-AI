@@ -18,7 +18,7 @@ def main():
     while True:
         user_input = input("You: ")
 
-        if user_input.lower() in ["quit", "exit", "q"]:
+        if user_input.lower() in ("quit", "exit", "q"):
             print("OK, bye! 👋")
             break
 

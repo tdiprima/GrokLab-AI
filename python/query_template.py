@@ -5,6 +5,7 @@ $ pip install xai-sdk
 """
 
 import os
+from pathlib import Path
 
 from halo import Halo
 from xai_sdk import Client
@@ -30,14 +31,13 @@ try:
     response = chat.sample()
     spinner.succeed("Response generated successfully!")
 except Exception as e:
-    spinner.fail(f"Failed to generate response: {str(e)}")
+    spinner.fail(f"Failed to generate response: {e}")
     raise
 # print(response.content)
 
 filename = "response.md"
 
 # Save the response to a file
-with open(filename, "w") as f:
-    f.write(response.content)
+Path(filename).write_text(response.content)
 
 print(f"Response saved to {filename}")

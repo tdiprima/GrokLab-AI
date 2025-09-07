@@ -1,8 +1,8 @@
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
 from halo import Halo
-from icecream import ic
 from openai import OpenAI
 
 # Configuration - modify these values as needed
@@ -20,8 +20,7 @@ if not XAI_API_KEY:
 
 # Read the input file
 try:
-    with open(INPUT_FILE, "r", encoding="utf-8") as file:
-        content = file.read()
+    content = Path(INPUT_FILE).read_text(encoding="utf-8")
 except FileNotFoundError:
     print(f"Error: {INPUT_FILE} file not found!")
     exit(1)
@@ -32,40 +31,12 @@ client = OpenAI(
 )
 
 # Create the prompt - modify this section based on your needs
-prompt = f"""**Role:**
-You are an expert technical summarizer who explains key ideas clearly and directly, pairing each idea with its corresponding code.
+prompt = f"""This article is too long for me to read through completely.
+Can you give me the essential points in a way that's easy to scan and remember?
+Use simple language, bullet points, and emojis.
 
-**Task:**
-Summarize the article in plain, scannable text.
-
-* State each essential idea in a short, clear sentence or two.
-* If the idea has an associated code example, place the **exact code block** immediately beneath the explanation.
-* Do not modify, truncate, or reformat the code.
-* Do not use bullet points, numbering, or lists — just a flowing sequence of idea followed by code.
-
-**Output Format:**
-Idea 1 (explained in plain text)
-
-```py
-[Exact code block if present]
-```
-
-Idea 2 (explained in plain text)
-
-```py
-[Exact code block if present]
-```
-
-...and so on until the article is fully summarized.
-
-Do NOT number them. For example: Idea 1, Idea 2, etc.
-Do not say 'The first library...' or 'The second library...'.
-
-**Input:**
+Here's the article:
 {content}
-
-**Output:**
-Plain explanation → code → explanation → code.
 """
 
 spinner = Halo(text="Generating response...", spinner="dots", color="magenta")
@@ -83,7 +54,7 @@ try:
     spinner.succeed("Response generated successfully!")
     # ic(result)
 except Exception as e:
-    spinner.fail(f"Failed to generate response: {str(e)}")
+    spinner.fail(f"Failed to generate response: {e}")
     raise
 
 # Save the response to output file

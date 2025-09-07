@@ -1,0 +1,35 @@
+prompt = f"""**Role:**
+You are an expert technical summarizer who explains key ideas clearly and directly, pairing each idea with its corresponding code.
+
+**Task:**
+Summarize the article in plain, scannable text.
+
+* State each essential idea in a short, clear sentence or two.
+* If the idea has an associated code example, place the **exact code block** immediately beneath the explanation.
+* Do not modify, truncate, or reformat the code.
+* Do not use bullet points, numbering, or lists — just a flowing sequence of idea followed by code.
+
+**Output Format:**
+Idea 1 (explained in plain text)
+
+```py
+[Exact code block if present]
+```
+
+Idea 2 (explained in plain text)
+
+```py
+[Exact code block if present]
+```
+
+...and so on until the article is fully summarized.
+
+Do NOT number them. For example: Idea 1, Idea 2, etc.
+Do not say 'The first library...' or 'The second library...'.
+
+**Input:**
+{content}
+
+**Output:**
+Plain explanation → code → explanation → code.
+"""

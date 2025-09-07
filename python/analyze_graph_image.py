@@ -1,6 +1,7 @@
 # Adapted from: https://docs.x.ai/docs/tutorial
 import base64
 import os
+from pathlib import Path
 
 from xai_sdk import Client
 from xai_sdk.chat import image, user
@@ -31,7 +32,6 @@ response = chat.sample()
 # print(response.content)
 
 # Save the response to a file
-with open(OUTPUT_FILE, "w") as f:
-    f.write(response.content)
+Path(OUTPUT_FILE).write_text(response.content)
 
 print(f"Response saved to {OUTPUT_FILE}")

@@ -28,7 +28,7 @@ def grok_commit_message(diff_text):
     }
 
     url = "https://api.x.ai/v1/chat/completions"  # Replace if different
-    response = requests.post(url, headers=headers, json=data)
+    response = requests.post(url, headers=headers, json=data, timeout=10)
 
     if response.status_code != 200:
         print("Error:", response.status_code)

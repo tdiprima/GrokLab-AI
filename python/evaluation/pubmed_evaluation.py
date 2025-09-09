@@ -23,7 +23,7 @@ def call_grok_api(query):
     payload = {"messages": [{"role": "user", "content": query}], "model": "grok-4"}
 
     try:
-        response = requests.post(url, json=payload, headers=headers)
+        response = requests.post(url, json=payload, headers=headers, timeout=10)
         response.raise_for_status()  # Raise an exception for HTTP errors
 
         data = response.json()

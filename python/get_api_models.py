@@ -15,7 +15,7 @@ california_tz = pytz.timezone("America/Los_Angeles")
 api_key = os.getenv("GROK_API_KEY")
 headers = {"Authorization": f"Bearer {api_key}"}
 
-response = requests.get("https://api.x.ai/v1/models", headers=headers)
+response = requests.get("https://api.x.ai/v1/models", headers=headers, timeout=10)
 
 if response.status_code == 200:
     models = response.json()

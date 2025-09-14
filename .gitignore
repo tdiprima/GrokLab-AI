@@ -1,7 +1,3 @@
-input.txt
-output.md
-.claude
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -173,3 +169,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+input.txt
+output.md
+.claude/

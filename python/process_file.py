@@ -3,6 +3,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 from halo import Halo
+from icecream import ic
 from openai import OpenAI
 
 # Configuration - modify these values as needed
@@ -52,7 +53,7 @@ try:
 
     result = completion.choices[0].message.content
     spinner.succeed("Response generated successfully!")
-    # ic(result)
+    ic(result)
 except Exception as e:
     spinner.fail(f"Failed to generate response: {e}")
     raise

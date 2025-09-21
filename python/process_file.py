@@ -1,20 +1,16 @@
 import os
 from pathlib import Path
 
-from dotenv import load_dotenv
 from halo import Halo
 # from icecream import ic
 from openai import OpenAI
 
 # Configuration - modify these values as needed
 INPUT_FILE = "input.txt"  # Change this to your input file name
-OUTPUT_FILE = "output.md"  # Change this to your desired output file name
-
-# Load environment variables
-load_dotenv()
+OUTPUT_FILE = "my-code-used-10gb-ram.md"  # Change this to your desired output file name
 
 # Get API key from environment
-XAI_API_KEY = os.getenv("XAI_API_KEY")
+XAI_API_KEY = os.environ["XAI_API_KEY"]
 
 if not XAI_API_KEY:
     raise ValueError("XAI_API_KEY environment variable is not set")

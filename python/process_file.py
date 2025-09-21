@@ -7,7 +7,7 @@ from openai import OpenAI
 
 # Configuration - modify these values as needed
 INPUT_FILE = "input.txt"  # Change this to your input file name
-OUTPUT_FILE = "my-code-used-10gb-ram.md"  # Change this to your desired output file name
+OUTPUT_FILE = "output.md"  # Change this to your desired output file name
 
 # Get API key from environment
 XAI_API_KEY = os.environ["XAI_API_KEY"]
@@ -34,6 +34,7 @@ Do it without preamble.
 Use simple language and and emojis.
 Make sure you grab all code examples.
 If a code example does not exist, make one up.
+Prefer ```py block over single tick `.
 
 Here's the article:
 {content}

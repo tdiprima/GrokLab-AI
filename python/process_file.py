@@ -3,7 +3,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 from halo import Halo
-from icecream import ic
+# from icecream import ic
 from openai import OpenAI
 
 # Configuration - modify these values as needed
@@ -34,7 +34,10 @@ client = OpenAI(
 # Create the prompt - modify this section based on your needs
 prompt = f"""This article is too long for me to read through completely.
 Can you give me the essential points in a way that's easy to scan and remember?
-Use simple language, bullet points, and emojis.
+Do it without preamble.
+Use simple language and and emojis.
+Make sure you grab all code examples.
+If a code example does not exist, make one up.
 
 Here's the article:
 {content}
@@ -53,7 +56,7 @@ try:
 
     result = completion.choices[0].message.content
     spinner.succeed("Response generated successfully!")
-    ic(result)
+    # ic(result)
 except Exception as e:
     spinner.fail(f"Failed to generate response: {e}")
     raise

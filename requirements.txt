@@ -1,6 +1,6 @@
 # python3.10 -m venv .venv
 # source .venv/bin/activate
 # pip install -r requirements.txt
-xai-sdk
-icecream
-halo
+xai-sdk==1.2.0
+icecream==2.1.8
+halo==0.0.31

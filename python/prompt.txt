@@ -1,3 +1,33 @@
+This article is too long for me to read through completely.
+Can you give me the essential points in a way that's easy to scan and remember?
+Use simple language, headers, and emojis.
+Show code examples.  Prefer ``` over single ticks.
+Give a good filename for your response.  Do not use the word "summary" in the filename.
+Do this without preamble.
+
+
+This article is too long for me to read through completely.
+Can you give me the essential points in a way that's easy to scan and remember?
+Explain it in a way that's easy for a beginner to understand.  Use headers for idea separation, and emojis for easy remembering.
+
+At the end, write a TL;DR.
+
+Write a good markdown filename for your response.  Do not include "summary" in the name.
+
+
+Please read this article and grab all code examples.
+Change some stuff so that it doesn't look like I'm copying it straight from the example.
+If the code is incomplete, please complete it.
+For each code block, please give it a good filename based on its content.
+Also, write a header comment at the top of the code saying when you'd use that particular library.
+DO NOT include any TODOs or FIXMEs.  I expect fully working code.
+Prefer ``` block over single tick `.
+I'll be using `uv` package manager, so give me the `uv add` command for all required libraries.
+Suggest 5 good/clever names for a GitHub repository containing this code.
+Suggest 5 good tags for the repository.
+Do all this without preamble.
+
+
 prompt = f"""**Role:**
 You are an expert technical summarizer who explains key ideas clearly and directly, pairing each idea with its corresponding code.
 

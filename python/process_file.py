@@ -42,10 +42,10 @@ Here's the article:
 
     try:
         completion = client.chat.completions.create(
-            model="grok-4",
+            model="grok-4-1-fast-reasoning",
             messages=[{"role": "user", "content": prompt}],
             max_tokens=4096,
-            temperature=0.5,
+            temperature=0.7,
         )
 
         result = completion.choices[0].message.content

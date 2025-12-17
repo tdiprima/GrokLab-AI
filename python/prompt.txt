@@ -24,7 +24,8 @@ DO NOT include any TODOs or FIXMEs.  I expect fully working code.
 Prefer ``` block over single tick `.
 I'll be using `uv` package manager, so give me the `uv add` command for all required libraries.
 Suggest 5 good/clever names for a GitHub repository containing this code.
-Suggest 5 good tags for the repository.
+Suggest 3-5 good tags for the repository.
+Suggest a 50-char description.
 Do all this without preamble.
 
 

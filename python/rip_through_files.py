@@ -1,55 +1,13 @@
+#!/usr/bin/env python3
+"""
+Process multiple input files (i1.txt, i2.txt, etc.) and generate summaries.
+"""
+
 import os
 import re
 import time
 
-from halo import Halo
-from openai import OpenAI
-
-
-def process_text(text: str) -> str:
-    """
-    Put your custom processing logic here.
-    Example below just wraps text in Markdown.
-    """
-    content = text.strip()
-    XAI_API_KEY = os.environ.get("XAI_API_KEY")
-
-    client = OpenAI(
-        api_key=XAI_API_KEY,
-        base_url="https://api.x.ai/v1",
-    )
-
-    prompt = f"""This article is too long for me to read through completely. 
-    Can you give me the essential points in a way that's easy to scan and remember?
-    Use bullet points and emojis.
-    If there's code, include the code in markdown format.
-    If the code is more than 3 lines long, give it a good filename.
-    Give me a good filename for your respose.  Do not use the word 'summary' in the filename.
-
-    Do this without preamble.
-
-    Here's the article:
-    {content}
-    """
-
-    spinner = Halo(text="Generating response...", spinner="dots", color="magenta")
-    spinner.start()
-
-    try:
-        completion = client.chat.completions.create(
-            model="grok-4-1-fast-reasoning",
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=8192,
-            temperature=0.7,
-        )
-
-        result = completion.choices[0].message.content
-        spinner.succeed("Response generated successfully!")
-    except Exception as e:
-        spinner.fail(f"Failed to generate response: {e}")
-        raise
-
-    return result
+from llm_processor import summarize_article
 
 
 def main(directory: str):
@@ -69,7 +27,7 @@ def main(directory: str):
         with open(input_path, "r", encoding="utf-8") as f:
             input_text = f.read()
 
-        output_text = process_text(input_text)
+        output_text = summarize_article(input_text)
 
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(output_text)

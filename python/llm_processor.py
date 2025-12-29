@@ -91,7 +91,7 @@ def process_article_to_code(content: str, **kwargs) -> str:
     """
     prompt = f"""Read the following article, and piece together the code snippets to make one working script.
     Include code comments.
-    Give it a good filename.  Tell me what the file extension should be.
+    Give it a good filename.
     If code is missing, do your best to fill it in.  I expect working code.
 
 Do this without preamble.
@@ -113,12 +113,13 @@ def summarize_article(content: str, **kwargs) -> str:
     Returns:
         The summarized content.
     """
-    prompt = f"""This article is too long for me to read through completely. 
-    Can you give me the essential points in a way that's easy to scan and remember?
-    Use bullet points and emojis.
+    prompt = f"""Please summarize this article in an ADHD-friendly way.
+    Don't write sparse notes; explain, but don't over-explain.
+    Write using simple language and emojis.
     If there's code, include the code in markdown format.
     If the code is more than 3 lines long, give it a good filename.
-    Give me a good filename for your respose.  Do not use the word 'summary' in the filename.
+    Give me a good filename for your respose.
+    Do not use the word 'summary' or 'cheatsheet' in the filename.
 
     Do this without preamble.
 

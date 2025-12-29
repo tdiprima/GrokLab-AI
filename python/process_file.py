@@ -5,7 +5,7 @@ Process a single input file and extract/reconstruct code from an article.
 
 from pathlib import Path
 
-from llm_processor import process_article_to_code
+from llm_processor import summarize_article, process_article_to_code
 
 INPUT_FILE = "input.txt"
 OUTPUT_FILE = "output.md"
@@ -18,7 +18,8 @@ def main():
         print(f"Error: {INPUT_FILE} file not found!")
         exit(1)
 
-    result = process_article_to_code(content)
+    result = summarize_article(content)
+    # result = process_article_to_code(content)
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(result)

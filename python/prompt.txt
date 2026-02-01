@@ -1,3 +1,7 @@
+Explain the following comments in an ADHD-friendly way.
+Simple, easy way for me to understand - don't assume I know jargon.
+
+
 This article is too long for me to read through completely.
 Can you give me the essential points in a way that's easy to scan and remember?
 Use simple language, headers, and emojis.
@@ -12,14 +16,13 @@ Explain it in a way that's easy for a beginner to understand.  Use headers for i
 
 At the end, write a TL;DR.
 
-Write a good markdown filename for your response.  Do not include "summary" in the name.
+Write a good markdown filename for your response.  Do not include "summary" or "cheatsheet" in the name.
 
 
 Please read this article and grab all code examples.
-Change some stuff so that it doesn't look like I'm copying it straight from the example.
 If the code is incomplete, please complete it.
 For each code block, please give it a good filename based on its content.
-Also, write a header comment at the top of the code saying when you'd use that particular library.
+Also, write a header comment at the top of the code saying why you'd use that particular library.
 DO NOT include any TODOs or FIXMEs.  I expect fully working code.
 Prefer ``` block over single tick `.
 I'll be using `uv` package manager, so give me the `uv add` command for all required libraries.

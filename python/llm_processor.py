@@ -78,28 +78,28 @@ def call_llm(
         raise
 
 
-def process_article_to_code(content: str, **kwargs) -> str:
-    """
-    Process an article and extract/reconstruct code snippets.
+# def process_article_to_code(content: str, **kwargs) -> str:
+#     """
+#     Process an article and extract/reconstruct code snippets.
 
-    Args:
-        content: The article text to process.
-        **kwargs: Additional arguments passed to call_llm.
+#     Args:
+#         content: The article text to process.
+#         **kwargs: Additional arguments passed to call_llm.
 
-    Returns:
-        The processed result with working code.
-    """
-    prompt = f"""Read the following article, and piece together the code snippets to make one working script.
-    Include code comments.
-    Give it a good filename.
-    If code is missing, do your best to fill it in.  I expect working code.
+#     Returns:
+#         The processed result with working code.
+#     """
+#     prompt = f"""Read the following article, and piece together the code snippets to make one working script.
+#     Include code comments.
+#     Give it a good filename.
+#     If code is missing, do your best to fill it in.  I expect working code.
 
-Do this without preamble.
+# Do this without preamble.
 
-Here's the article:
-{content}
-"""
-    return call_llm(prompt, **kwargs)
+# Here's the article:
+# {content}
+# """
+#     return call_llm(prompt, **kwargs)
 
 
 def summarize_article(content: str, **kwargs) -> str:

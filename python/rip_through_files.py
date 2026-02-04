@@ -3,9 +3,9 @@
 Process multiple input files (i1.txt, i2.txt, etc.) and generate summaries.
 """
 
-import os
 import re
 import time
+from pathlib import Path
 
 from llm_processor import summarize_article
 
@@ -14,25 +14,19 @@ def main(directory: str):
     # Match files like i1.txt, i2.txt, etc.
     input_pattern = re.compile(r"i(\d+)\.txt$")
 
-    for filename in os.listdir(directory):
-        match = input_pattern.match(filename)
+    for input_path in Path(directory).iterdir():
+        match = input_pattern.match(input_path.name)
         if not match:
             continue
 
         index = match.group(1)
-        input_path = os.path.join(directory, filename)
-        output_filename = f"o{index}.md"
-        output_path = os.path.join(directory, output_filename)
+        output_path = input_path.with_name(f"o{index}.md")
 
-        with open(input_path, "r", encoding="utf-8") as f:
-            input_text = f.read()
-
+        input_text = input_path.read_text(encoding="utf-8")
         output_text = summarize_article(input_text)
+        output_path.write_text(output_text, encoding="utf-8")
 
-        with open(output_path, "w", encoding="utf-8") as f:
-            f.write(output_text)
-
-        print(f"✅ {filename} → {output_filename}")
+        print(f"✅ {input_path.name} → {output_path.name}")
         time.sleep(2)
 
 

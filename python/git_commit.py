@@ -1,11 +1,16 @@
 import os
+import shutil
 import subprocess
 
 import requests
 
+GIT_PATH = shutil.which("git")
+
 
 def get_git_diff():
-    result = subprocess.run(["git", "diff", "--cached"], stdout=subprocess.PIPE)
+    if not GIT_PATH:
+        raise RuntimeError("git not found on PATH")
+    result = subprocess.run([GIT_PATH, "diff", "--cached"], stdout=subprocess.PIPE)
     return result.stdout.decode("utf-8")
 
 
@@ -55,7 +60,7 @@ def main():
     # Optional: actually commit
     confirm = input("Use this commit message? (y/n): ").strip().lower()
     if confirm == "y":
-        subprocess.run(["git", "commit", "-m", commit_message])
+        subprocess.run([GIT_PATH, "commit", "-m", commit_message])
     else:
         print("Commit aborted.")
 

@@ -22,7 +22,7 @@ Write a good markdown filename for your response.  Do not include "summary" or "
 Please read this article and grab all code examples.
 If the code is incomplete, please complete it.
 For each code block, please give it a good filename based on its content.
-Also, write a header comment at the top of the code saying why you'd use that particular library.
+Also, write a header comment at the top of the code saying what it does.  Make it stupidly simple to understand.
 DO NOT include any TODOs or FIXMEs.  I expect fully working code.
 Prefer ``` block over single tick `.
 I'll be using `uv` package manager, so give me the `uv add` command for all required libraries.

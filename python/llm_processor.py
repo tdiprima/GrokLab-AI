@@ -120,6 +120,7 @@ def summarize_article(content: str, **kwargs) -> str:
     Include the hyperlink at the top.
     If there's code, include the code in markdown format.
     If the code is more than 3 lines long, give it a good filename.
+    At the end, write a TL;DR in bullet points.
     Give me a good filename for your respose.
     Do not use the word 'summary' or 'cheatsheet' in the filename.
 

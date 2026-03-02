@@ -1,6 +1,6 @@
 # GrokLab-AI
 
-There's all kinds of ways of doing this.
+This repository came out of wanting a cleaner, more practical way to experiment with Grok and OpenAI APIs across different environments without rebuilding the same setup every time. It pulls together simple, reusable examples in Python, JavaScript, and Bash to show how I approach API integration work: keep the structure clear, reduce friction, and make it easy to move from quick testing to something production-minded.
 
 ## Setup Instructions
 

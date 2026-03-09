@@ -1,3 +1,18 @@
+Read the article provided below and identify the main technique, method, or concept being demonstrated.
+
+Write a Python script that demonstrates the same idea in a clear, minimal example.
+
+Requirements:
+- The code must be complete and runnable.
+- Include helpful comments explaining the key steps.
+- Use clear variable names and simple structure.
+- Provide a descriptive filename for the script.
+- Briefly explain (2–4 sentences) how the script reflects the concept from the article.
+
+Article:
+[PASTE ARTICLE HERE]
+
+
 Explain the following comments in an ADHD-friendly way.
 Simple, easy way for me to understand - don't assume I know jargon.
 

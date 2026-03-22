@@ -113,15 +113,26 @@ def summarize_article(content: str, **kwargs) -> str:
     Returns:
         The summarized content.
     """
-    prompt = f"""Please summarize this article in an ADHD-friendly way.
-    Make it stupidly simple to understand.
-    Write in clear, complete sentences with proper grammar; avoid shorthand or fragmented phrasing.
-    Write using simple language and emojis.
+    prompt = f"""Please summarize this article.
+    * Keep sentences short and simple.
+    * Use bullet points instead of big paragraphs.
+    * Break information into small chunks.
+    * Put the most important info first.
+    * Use clear section headers when needed.
+    * Add spacing so text isn’t visually overwhelming.
+    * Highlight key words or ideas (like **bold**).
+    * Avoid unnecessary filler or long explanations.
+    * Use step-by-step lists for instructions.
+    * Keep the flow logical and easy to scan.
+    * Limit each bullet to one main idea.
+    * Occasionally use emojis or visual cues to make sections easier to spot.
+    * Repeat or summarize key takeaways if the topic is complex.
+    * Avoid dense blocks of text or long walls of information.
     Include the hyperlink at the top.
+    Prefer headers over bold text.
     If there's code, include the code in markdown format.
     You must use code blocks; no single ticks.
     If the code is more than 3 lines long, give it a good filename.
-    At the end, write a TL;DR in bullet points.
     Give me a good filename for your respose.
     Do not use the word 'summary' or 'cheatsheet' in the filename.
 

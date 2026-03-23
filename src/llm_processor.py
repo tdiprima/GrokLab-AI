@@ -3,9 +3,29 @@ Shared module for LLM text processing using the xAI API.
 """
 
 import os
+from pathlib import Path
 
 from halo import Halo
 from openai import OpenAI
+
+PROMPTS_DIR = Path(__file__).parent / "prompts"
+
+
+def load_prompt(filename: str) -> str:
+    """
+    Load a prompt template from the prompts directory.
+
+    Args:
+        filename: The prompt filename (e.g. 'two-pass-article-breakdown.md').
+
+    Returns:
+        The prompt text.
+
+    Raises:
+        FileNotFoundError: If the prompt file does not exist.
+    """
+    prompt_path = PROMPTS_DIR / filename
+    return prompt_path.read_text(encoding="utf-8")
 
 
 def get_client() -> OpenAI:
@@ -104,7 +124,7 @@ def call_llm(
 
 def summarize_article(content: str, **kwargs) -> str:
     """
-    Summarize an article with bullet points and emojis.
+    Summarize an article using the two-pass-article-breakdown prompt.
 
     Args:
         content: The article text to summarize.
@@ -113,32 +133,6 @@ def summarize_article(content: str, **kwargs) -> str:
     Returns:
         The summarized content.
     """
-    prompt = f"""Please summarize this article.
-    * Keep sentences short and simple.
-    * Use bullet points instead of big paragraphs.
-    * Break information into small chunks.
-    * Put the most important info first.
-    * Use clear section headers when needed.
-    * Add spacing so text isn’t visually overwhelming.
-    * Highlight key words or ideas (like **bold**).
-    * Avoid unnecessary filler or long explanations.
-    * Use step-by-step lists for instructions.
-    * Keep the flow logical and easy to scan.
-    * Limit each bullet to one main idea.
-    * Occasionally use emojis or visual cues to make sections easier to spot.
-    * Repeat or summarize key takeaways if the topic is complex.
-    * Avoid dense blocks of text or long walls of information.
-    Include the hyperlink at the top.
-    Prefer headers over bold text.
-    If there's code, include the code in markdown format.
-    You must use code blocks; no single ticks.
-    If the code is more than 3 lines long, give it a good filename.
-    Give me a good filename for your respose.
-    Do not use the word 'summary' or 'cheatsheet' in the filename.
-
-    Do this without preamble.
-
-    Here's the article:
-    {content}
-    """
+    template = load_prompt("two-pass-article-breakdown.md")
+    prompt = template + content
     return call_llm(prompt, **kwargs)

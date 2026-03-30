@@ -118,8 +118,8 @@ def summarize_article(content: str, **kwargs) -> str:
     Write in clear, complete sentences with proper grammar; avoid shorthand or fragmented phrasing.
     Write using simple language and emojis.
     Include the hyperlink at the top.
-    If there's code, include the code in markdown format.
-    You must use code blocks; no single ticks.
+    Grab all code blocks - write them in markdown format.
+    You must use code blocks ```; no single ticks.
     If the code is more than 3 lines long, give it a good filename.
     At the end, write a TL;DR in bullet points.
     Give me a good filename for your respose.

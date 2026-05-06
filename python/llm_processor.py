@@ -28,7 +28,7 @@ def get_client() -> OpenAI:
 
 def call_llm(
     prompt: str,
-    model: str = "grok-4-1-fast-reasoning",
+    model: str = "grok-4.3",
     max_tokens: int = 8192,
     temperature: float = 0.7,
     show_spinner: bool = True,

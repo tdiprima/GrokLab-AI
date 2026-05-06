@@ -60,7 +60,7 @@ Here's the text:
 
     try:
         response = client.responses.create(
-            model="grok-4-1-fast-reasoning",
+            model="grok-4.3",
             input=prompt,
             max_output_tokens=4096,
             temperature=0.7,

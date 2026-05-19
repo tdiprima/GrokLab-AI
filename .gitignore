@@ -173,3 +173,5 @@ cython_debug/
 input.txt
 output.md
 .claude/
+
+.codegraph/

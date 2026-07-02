@@ -115,7 +115,7 @@ def summarize_article(content: str, **kwargs) -> str:
     """
     prompt = f"""Please summarize this article in an ADHD-friendly way.
     Write in clear, complete sentences with proper grammar; avoid shorthand or fragmented phrasing.
-    Write using simple language that a 10th grader can understand.
+    Make it simple to understand.
     Include the hyperlink at the top.
     Grab all code blocks - write them in markdown format.
     You must use code blocks ```; no single ticks.

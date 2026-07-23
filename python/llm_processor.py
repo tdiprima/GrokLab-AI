@@ -114,6 +114,7 @@ def summarize_article(content: str, **kwargs) -> str:
         The summarized content.
     """
     prompt = f"""Please summarize this article in an ADHD-friendly way.
+    Remember that this is a summary; you are making it shorter for me to read.
     Write in clear, complete sentences with proper grammar; avoid shorthand or fragmented phrasing.
     Make it stupid simple to understand.  Include any humor the author injected into the article.
     Include the hyperlink at the top.  Also write the title and author.

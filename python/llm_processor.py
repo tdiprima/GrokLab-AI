@@ -117,6 +117,7 @@ def summarize_article(content: str, **kwargs) -> str:
     Remember that this is a summary; you are making it shorter for me to read.
     Write in clear, complete sentences with proper grammar; avoid shorthand or fragmented phrasing.
     Make it stupid simple to understand.  Include any humor the author injected into the article.
+    Remember - you're doing a summary; keep it short!
     Include the hyperlink at the top.  Also write the title and author.
     Grab all code blocks - write them in markdown format.
     You must use code blocks ```; no single ticks.
